@@ -6,16 +6,16 @@ template <typename Dato>
 class Lista_t
 {
 private:
-	Nodo<Dato>* primer_punt;
+	Nodo<Dato> *primer_punt;
 
 	unsigned tam;
 
-	Nodo<Dato>* obtener_nodo(unsigned indice);
+	Nodo<Dato> *obtener_nodo(unsigned indice);
 
 public:
 	Lista_t();
 
-	Lista_t(const Lista_t& lista);
+	Lista_t(const Lista_t &lista);
 
 	~Lista_t();
 
@@ -30,8 +30,7 @@ public:
 	Dato obtener_dato_lista(unsigned indice);
 };
 
-
-//Construcotr sin parametros
+// Construcotr sin parametros
 template <typename Dato>
 Lista_t<Dato>::Lista_t()
 {
@@ -40,25 +39,25 @@ Lista_t<Dato>::Lista_t()
 	this->tam = 0;
 };
 
-//lista vacia?
+// lista vacia?
 template <typename Dato>
 bool Lista_t<Dato>::lista_vacia()
 {
 	return this->primer_punt == nullptr;
 }
 
-//devuelve el tamaño de la lista
+// devuelve el tamaï¿½o de la lista
 template <typename Dato>
 unsigned Lista_t<Dato>::obtener_tam()
 {
 	return this->tam;
 }
 
-//devuelve el nodo ubicado en el indice
+// devuelve el nodo ubicado en el indice
 template <typename Dato>
-Nodo<Dato>* Lista_t<Dato>::obtener_nodo(const unsigned indice)
+Nodo<Dato> *Lista_t<Dato>::obtener_nodo(const unsigned indice)
 {
-	Nodo<Dato>* nodo_auxiliar = this->primer_punt;
+	Nodo<Dato> *nodo_auxiliar = this->primer_punt;
 	unsigned i = 1;
 	while (i < indice && nodo_auxiliar != nullptr)
 	{
@@ -68,11 +67,11 @@ Nodo<Dato>* Lista_t<Dato>::obtener_nodo(const unsigned indice)
 	return nodo_auxiliar;
 }
 
-//Inserta un dato en un indice
+// Inserta un dato en un indice
 template <typename Dato>
 void Lista_t<Dato>::insertar_lista(Dato dat, unsigned indice)
 {
-	Nodo<Dato>* nuevo_nodo = new Nodo<Dato>(dat);
+	Nodo<Dato> *nuevo_nodo = new Nodo<Dato>(dat);
 
 	if (indice == 1)
 	{
@@ -81,7 +80,7 @@ void Lista_t<Dato>::insertar_lista(Dato dat, unsigned indice)
 	}
 	else
 	{
-		Nodo<Dato>* anterior_nodo = obtener_nodo(indice - 1);
+		Nodo<Dato> *anterior_nodo = obtener_nodo(indice - 1);
 
 		nuevo_nodo->asignar_siguiente_punt(anterior_nodo->obtener_siguiente_nodo());
 		anterior_nodo->asignar_siguiente_punt(nuevo_nodo);
@@ -89,11 +88,11 @@ void Lista_t<Dato>::insertar_lista(Dato dat, unsigned indice)
 	this->tam++;
 }
 
-//elina el dato en la ubicacion indice
+// elina el dato en la ubicacion indice
 template <typename Dato>
 void Lista_t<Dato>::eleimnar_dato_lista(unsigned indice)
 {
-	Nodo<Dato>* nodo_borrar = this->primer_punt;
+	Nodo<Dato> *nodo_borrar = this->primer_punt;
 
 	if (indice == 1)
 	{
@@ -101,7 +100,7 @@ void Lista_t<Dato>::eleimnar_dato_lista(unsigned indice)
 	}
 	else
 	{
-		Nodo<Dato>* nodo_anterior = obtener_nodo(indice - 1);
+		Nodo<Dato> *nodo_anterior = obtener_nodo(indice - 1);
 		nodo_borrar = nodo_anterior->obtener_siguiente_nodo();
 		nodo_anterior->asignar_siguiente_punt(nodo_borrar->obtener_siguiente_nodo());
 	}
@@ -109,17 +108,17 @@ void Lista_t<Dato>::eleimnar_dato_lista(unsigned indice)
 	this->tam--;
 }
 
-//devuelve el tamaño de la lista
+// devuelve el tamaï¿½o de la lista
 template <typename Dato>
 Dato Lista_t<Dato>::obtener_dato_lista(const unsigned indice)
 {
-	Nodo<Dato>* punt_aux = obtener_nodo(indice);
+	Nodo<Dato> *punt_aux = obtener_nodo(indice);
 	return punt_aux->obtener_dato();
 }
 
 // constructo de copia
 template <typename Dato>
-Lista_t<Dato>::Lista_t(const Lista_t& lista)
+Lista_t<Dato>::Lista_t(const Lista_t &lista)
 {
 	this->tam = lista.tam;
 
@@ -130,15 +129,15 @@ Lista_t<Dato>::Lista_t(const Lista_t& lista)
 	}
 
 	// Crear un nuevo nodo para el primer elemento de la nueva lista
-	Nodo<Dato>* nuevo_nodo = new Nodo<Dato>(lista.primer_punt->obtener_dato());
+	Nodo<Dato> *nuevo_nodo = new Nodo<Dato>(lista.primer_punt->obtener_dato());
 	this->primer_punt = nuevo_nodo;
 
-	Nodo<Dato>* actual_original = lista.primer_punt->obtener_siguiente_nodo();
-	Nodo<Dato>* actual_nuevo = this->primer_punt;
+	Nodo<Dato> *actual_original = lista.primer_punt->obtener_siguiente_nodo();
+	Nodo<Dato> *actual_nuevo = this->primer_punt;
 
 	while (actual_original != nullptr)
 	{
-		Nodo<Dato>* nuevo_nodo = new Nodo<Dato>(actual_original->obtener_dato());
+		Nodo<Dato> *nuevo_nodo = new Nodo<Dato>(actual_original->obtener_dato());
 		actual_nuevo->asignar_siguiente_punt(nuevo_nodo);
 		actual_nuevo = actual_nuevo->obtener_siguiente_nodo();
 		actual_original = actual_original->obtener_siguiente_nodo();
@@ -146,7 +145,7 @@ Lista_t<Dato>::Lista_t(const Lista_t& lista)
 	actual_nuevo->asignar_siguiente_punt(nullptr);
 }
 
-//Destructor
+// Destructor
 template <typename Dato>
 Lista_t<Dato>::~Lista_t()
 {
@@ -156,9 +155,7 @@ Lista_t<Dato>::~Lista_t()
 	}
 }
 
-
-
 #endif
 // Ejemplo de uso de la plantilla
-//Nodo<int> nodoEntero; // Ejemplo con tipo de dato int
-//Nodo<double> nodoDecimal; // Ejemplo con tipo de dato double
+// Nodo<int> nodoEntero; // Ejemplo con tipo de dato int
+// Nodo<double> nodoDecimal; // Ejemplo con tipo de dato double
