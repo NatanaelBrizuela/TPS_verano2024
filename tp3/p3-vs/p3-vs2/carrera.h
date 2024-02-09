@@ -14,17 +14,11 @@ public:
     /* Crea una Carrera con su nombre, la duración (en años) y una lista
     de materias */
     Carrera(string nombre, int duracion, Lista_t<string> *materias);
+    // destructor
     ~Carrera();
-
-    string devolver_nombre()
+    // devuelve la duracion de la carrera en años
+    int obtener_duracion();
+    string obtener_nombre();
+    Lista_t<string> *obtener_materias();
 };
-
-Carrera::Carrera(/* args */)
-{
-}
-
-Carrera::~Carrera()
-{
-}
-
 #endif

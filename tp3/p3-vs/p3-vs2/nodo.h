@@ -10,7 +10,7 @@ class Nodo
 {
 private:
 	Dato dato; // dato a almacenar
-	Nodo* punt_sig;
+	Nodo *punt_sig;
 
 public:
 	// constructor con parametro
@@ -26,10 +26,10 @@ public:
 	void asignar_dato(Dato dat);
 
 	// setear el puntero al siguiente nodo
-	void asignar_siguiente_punt(Nodo* sig_punt);
+	void asignar_siguiente_punt(Nodo *sig_punt);
 
 	// obtener el puntero al nodo siguiente
-	Nodo* obtener_siguiente_nodo();
+	Nodo *obtener_siguiente_nodo();
 };
 
 template <typename Dato>
@@ -59,13 +59,13 @@ void Nodo<Dato>::asignar_dato(Dato dat)
 }
 
 template <typename Dato>
-void Nodo<Dato>::asignar_siguiente_punt(Nodo* sig_punt)
+void Nodo<Dato>::asignar_siguiente_punt(Nodo *sig_punt)
 {
 	this->punt_sig = sig_punt;
 }
 
 template <typename Dato>
-Nodo<Dato>* Nodo<Dato>::obtener_siguiente_nodo()
+Nodo<Dato> *Nodo<Dato>::obtener_siguiente_nodo()
 {
 	return this->punt_sig;
 }
