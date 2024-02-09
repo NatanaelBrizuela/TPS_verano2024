@@ -1,0 +1,17 @@
+Leche	1
+Pan	2
+Manzanas	3
+Tomates	100
+Huevos	1
+Yogurt	2
+Fideos	1
+Arroz	1
+Café	1
+Galletas	1
+Chocolate	1
+caramelos   90
+agua    600
+miel    15
+coco    80
+pitusas   200
+cuaderno    2

@@ -1,0 +1,2 @@
+Ejecutable.exe: ./codigos_fuente/main.cpp ./codigos_fuente/gondola.cpp ./codigos_fuente/Productos.cpp ./codigos_fuente/gondola.h ./codigos_fuente/Productos.h
+	g++ -g ./codigos_fuente/*.cpp -o Ejecutable.exe	
