@@ -1,4 +1,4 @@
-#include "nodo.h"
+#include "nodo_circ.h"
 
 // constructor
 Nodo::Nodo(Dato dat)
